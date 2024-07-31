@@ -11,3 +11,7 @@ body {
   height: 100svh;
   background-color: rgb(115, 30, 196);
 }
+
+.content {
+  height: 100svh;
+}

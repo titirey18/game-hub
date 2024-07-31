@@ -1,5 +1,10 @@
 import { iniPpt } from '../../page/Ppt/Ppt'
-import { iniTateti } from '../../page/Tateti/Tateti'
+import {
+  iniTateti,
+  Poner,
+  resetcontent,
+  checkWinner
+} from '../../page/Tateti/Tateti'
 import './header.css'
 
 export const header = (DivApp) => {
@@ -10,11 +15,16 @@ export const header = (DivApp) => {
   buttonPpt.textContent = 'Piedra Papel o Tijera'
   buttonTateti.textContent = 'Tateti'
 
-  buttonPpt.addEventListener('click', () => {
-    DivApp.innerHTML = ''
-    iniPpt()
+  buttonTateti.addEventListener('click', () => {
+    if (document.querySelector('.Cuadro')) {
+      resetcontent()
+    } else {
+      iniTateti()
+      Poner()
+      checkWinner()
+    }
   })
-  buttonTateti.addEventListener('click', iniTateti)
+  buttonPpt.addEventListener('click', iniPpt)
 
   Header.append(buttonPpt)
   Header.append(buttonTateti)
