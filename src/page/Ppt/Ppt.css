@@ -1,0 +1,25 @@
+.box {
+  height: 70svh;
+  display: flex;
+  flex-direction: column;
+}
+
+.Duelo {
+  height: 100%;
+  background-color: aqua;
+}
+
+.button-character {
+  background-color: rgb(212, 210, 210);
+  font-size: 30px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.DIV-BUTTON {
+  display: flex;
+  height: 100px;
+  align-items: center;
+  justify-content: space-around;
+}

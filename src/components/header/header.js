@@ -24,7 +24,9 @@ export const header = (DivApp) => {
       checkWinner()
     }
   })
-  buttonPpt.addEventListener('click', iniPpt)
+  buttonPpt.addEventListener('click', () => {
+    iniPpt()
+  })
 
   Header.append(buttonPpt)
   Header.append(buttonTateti)

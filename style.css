@@ -13,5 +13,9 @@ body {
 }
 
 .content {
-  height: 100svh;
+  display: flex;
+  background-color: black;
+  width: 50%;
+  margin: auto;
+  flex-direction: column;
 }
