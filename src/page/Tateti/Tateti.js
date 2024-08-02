@@ -128,7 +128,9 @@ export const checkWinner = () => {
       board[a[0]][a[1]] === board[b[0]][b[1]] &&
       board[a[0]][a[1]] === board[c[0]][c[1]]
     ) {
-      alert(`Ha ganado jugador ${board[a[0]][a[1]]}`)
+      setTimeout(() => {
+        alert(` Ha ganado el jugador ${board[a[0]][a[1]]}`)
+      }, 100)
       return board[a[0]][a[1]]
     }
   }

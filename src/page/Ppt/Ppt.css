@@ -1,25 +1,89 @@
-.box {
+.Caja {
   height: 70svh;
   display: flex;
   flex-direction: column;
 }
 
 .Duelo {
+  display: flex;
   height: 100%;
-  background-color: aqua;
+}
+.Duelo > .ClasePiedra {
+  font-size: 100px;
+  text-align: center;
+  padding-top: 20%;
+  background-color: black;
 }
 
-.button-character {
-  background-color: rgb(212, 210, 210);
+.Duelo > .ClasePapel {
+  font-size: 100px;
+  text-align: center;
+  padding-top: 20%;
+  background-color: black;
+}
+
+.Duelo > .ClaseTijera {
+  font-size: 100px;
+  text-align: center;
+  padding-top: 20%;
+  background-color: black;
+}
+
+.Jugadores {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+}
+.Jugadores > p {
+  background-color: rgb(255, 123, 0);
+  border-radius: 6px;
+  padding: 5px;
+  font-size: 30px;
+}
+
+.ClasePiedra {
+  background-color: rgba(250, 250, 250, 0.849);
   font-size: 30px;
   padding: 10px;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
+}
+.ClasePapel {
+  background-color: rgba(250, 250, 250, 0.849);
+  font-size: 30px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.ClaseTijera {
+  background-color: rgba(250, 250, 250, 0.849);
+  font-size: 30px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.DIV-BUTTON {
+.Botones {
   display: flex;
   height: 100px;
   align-items: center;
   justify-content: space-around;
+}
+
+.PrimerJugador {
+  border: 2px solid white;
+  height: 80%;
+  width: 100%;
+  margin: auto;
+}
+
+.JugadorAleatorio {
+  border: 2px solid white;
+  height: 80%;
+  width: 100%;
+  margin: auto;
 }
