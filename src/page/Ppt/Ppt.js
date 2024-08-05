@@ -16,10 +16,10 @@ export const iniPpt = () => {
   const player2 = document.createElement('p')
 
   Ppt.textContent = 'Piedra Papel o Tijera'
-  Ppt.classList.add('Titulo')
-  Divplayer.classList.add('Jugadores')
-  player1.textContent = 'Jugador 1'
-  player2.textContent = 'Jugador 2'
+  Ppt.classList.add('Title')
+  Divplayer.classList.add('Players')
+  player1.textContent = 'Player 1'
+  player2.textContent = 'Player 2'
 
   Divcontent.append(Ppt)
 
@@ -29,9 +29,9 @@ export const iniPpt = () => {
   const DivDuelo = document.createElement('div')
   DivDuelo.classList.add('Duelo')
   const article1 = document.createElement('article')
-  article1.classList.add('PrimerJugador')
+  article1.classList.add('FirstPlayer')
   const article2 = document.createElement('article')
-  article2.classList.add('JugadorAleatorio')
+  article2.classList.add('PlayerRandom')
   const Divbutton = document.createElement('div')
   Divbutton.classList.add('Botones')
 
@@ -83,7 +83,7 @@ export const iniPpt = () => {
   function eleccionAleatoriaDuelo() {
     const eleccionAleatoria = Math.floor(Math.random() * 3) + 1
 
-    article2.className = 'JugadorAleatorio'
+    article2.className = 'PlayerRandom'
     article2.textContent = ''
     if (eleccionAleatoria == 1) {
       article2.classList.add('ClasePiedra')
@@ -99,7 +99,7 @@ export const iniPpt = () => {
   }
 
   function elegirEmoji(e) {
-    article1.className = 'PrimerJugador'
+    article1.className = 'FirstPlayer'
     article1.textContent = ''
 
     if (e.target.id == 1) {

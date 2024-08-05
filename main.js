@@ -1,9 +1,4 @@
-import {
-  iniTateti,
-  Poner,
-  resetcontent,
-  checkWinner
-} from './src/page/Tateti/Tateti'
+import { iniTateti, Poner, checkWinner } from './src/page/Tateti/Tateti'
 import { header } from './src/components/header/header'
 import './style.css'
 
@@ -16,5 +11,4 @@ DivApp.append(Divcontent)
 
 iniTateti()
 Poner()
-resetcontent()
 checkWinner()

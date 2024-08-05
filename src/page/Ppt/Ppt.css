@@ -29,40 +29,43 @@
   background-color: black;
 }
 
-.Jugadores {
+.Players {
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 20px;
 }
-.Jugadores > p {
-  background-color: rgb(255, 123, 0);
+.Players > p {
+  background-color: rgb(43, 255, 0);
   border-radius: 6px;
   padding: 5px;
   font-size: 30px;
 }
 
 .ClasePiedra {
-  background-color: rgba(250, 250, 250, 0.849);
+  background-color: black;
   font-size: 30px;
+  color: rgb(43, 255, 0);
   padding: 10px;
-  border: none;
+  border: 1px solid rgb(43, 255, 0);
   border-radius: 5px;
   cursor: pointer;
 }
 .ClasePapel {
-  background-color: rgba(250, 250, 250, 0.849);
+  background-color: black;
   font-size: 30px;
+  color: rgb(43, 255, 0);
   padding: 10px;
-  border: none;
+  border: 1px solid rgb(43, 255, 0);
   border-radius: 5px;
   cursor: pointer;
 }
 .ClaseTijera {
-  background-color: rgba(250, 250, 250, 0.849);
+  background-color: black;
   font-size: 30px;
+  color: rgb(43, 255, 0);
   padding: 10px;
-  border: none;
+  border: 1px solid rgb(43, 255, 0);
   border-radius: 5px;
   cursor: pointer;
 }
@@ -74,16 +77,36 @@
   justify-content: space-around;
 }
 
-.PrimerJugador {
-  border: 2px solid white;
+.FirstPlayer {
+  border: 2px solid rgb(43, 255, 0);
   height: 80%;
   width: 100%;
   margin: auto;
 }
 
-.JugadorAleatorio {
-  border: 2px solid white;
+.PlayerRandom {
+  border: 2px solid rgb(43, 255, 0);
   height: 80%;
   width: 100%;
   margin: auto;
+}
+
+@media (max-width: 768px) {
+  .ClaseTijera {
+    font-size: medium;
+  }
+  .ClasePapel {
+    font-size: medium;
+  }
+  .ClasePiedra {
+    font-size: medium;
+  }
+
+  .Title {
+    font-size: xx-large;
+  }
+
+  .Players > p {
+    font-size: large;
+  }
 }

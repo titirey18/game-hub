@@ -9,7 +9,7 @@ export const iniTateti = () => {
 
   Divcontent.append(Tateti)
   Tateti.textContent = 'Tateti'
-  Tateti.classList.add('Titulo')
+  Tateti.classList.add('Title')
   Divplayer.classList.add('Players')
   player1.textContent = 'Player X'
   player2.textContent = 'Player O'
@@ -53,14 +53,6 @@ export const Poner = () => {
         checkWinner()
       }
     })
-  })
-}
-
-export const resetcontent = () => {
-  const Bloques = document.querySelectorAll('.Bloques')
-  Bloques.forEach((Bloque) => {
-    Bloque.textContent = ''
-    Bloque.classList.remove('playerX', 'playerO')
   })
 }
 

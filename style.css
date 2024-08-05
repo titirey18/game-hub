@@ -9,13 +9,23 @@
 
 body {
   height: 100svh;
-  background-color: rgb(115, 30, 196);
+  background-color: rgb(6, 59, 206);
 }
 
 .content {
   display: flex;
+  position: relative;
+  overflow: hidden;
   background-color: black;
   width: 50%;
   margin: auto;
+  height: 90svh;
   flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .content {
+    width: 90%;
+    margin: auto;
+  }
 }
