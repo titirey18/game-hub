@@ -1,5 +1,9 @@
 import './Multifrutas.css'
 
+let COUNT = 0
+let interval
+let estado = true
+
 export const iniMulti = () => {
   const Divcontent = document.querySelector('.content')
 
@@ -10,19 +14,46 @@ export const iniMulti = () => {
 
   Divcontent.innerHTML = ''
 
+  COUNT = parseInt(localStorage.getItem('score')) || 0
+
   const Multi = document.createElement('h1')
   const cesta = document.createElement('img')
+  const textcount = document.createElement('h2')
+  const play = document.createElement('button')
+  const stop = document.createElement('button')
 
+  textcount.className = 'contador'
+  textcount.textContent = COUNT
   cesta.className = 'cesta'
   cesta.src = 'public/assets/cesta.png'
+  play.textContent = 'Play'
+  stop.textContent = 'Stop'
+  play.className = 'button-Fruit'
+  stop.className = 'button-Fruit'
+
+  play.addEventListener('click', () => {
+    estado = !estado
+    Estadobutton(play, stop)
+    stargame()
+  })
+
+  stop.addEventListener('click', () => {
+    estado = !estado
+    Estadobutton(play, stop)
+    clearInterval(interval)
+    disableFruits()
+  })
+
+  Estadobutton(play, stop)
 
   Multi.textContent = 'Multifrutas'
   Multi.classList.add('Title')
 
+  Divcontent.append(play)
+  Divcontent.append(stop)
+  Divcontent.append(textcount)
   Divcontent.append(Multi)
   Divcontent.append(cesta)
-
-  /* setInterval(createFrutas, 1000) */
 }
 
 const createFrutas = () => {
@@ -50,5 +81,97 @@ const createFrutas = () => {
   ImgFrutas.className = 'ElementFruit'
   ImgFrutas.style.top = `${randomTop + 150}px`
   ImgFrutas.style.left = `${randomLeft}px`
+  ImgFrutas.classList.add('Recoger')
+
+  ImgFrutas.addEventListener('click', (event) => pickfruit(event, contentRect))
+
   Divcontent.append(ImgFrutas)
+  comprobar()
+}
+
+const pickfruit = (event, contentRect) => {
+  COUNT++
+  localStorage.setItem('score', COUNT)
+  repeattext(COUNT)
+  event.target.classList.remove('Recoger')
+  let randomTop = Math.random() * 20 + 90
+  let randomLeft = Math.random() * 20 + 90
+  event.target.style.top = `${contentRect.height - randomTop}px`
+  event.target.style.left = `${contentRect.width - randomLeft}px`
+}
+
+const repeattext = (e) => {
+  const text = document.querySelector('.contador')
+  text.textContent = e
+}
+
+const comprobar = () => {
+  const Allfruit = document.querySelectorAll('.Recoger')
+  if (Allfruit.length > 50) {
+    alert('Hay demasiadas Frutas')
+    clearInterval(interval)
+  }
+}
+
+const stargame = () => {
+  enableFruits()
+  interval = setInterval(() => {
+    createFrutas()
+  }, 1000)
+  setTimeout(() => {
+    clearInterval(interval)
+    if (!estado) {
+      interval = setInterval(() => {
+        createFrutas()
+      }, 800)
+    }
+  }, 5000)
+  setTimeout(() => {
+    clearInterval(interval)
+    if (!estado) {
+      interval = setInterval(() => {
+        createFrutas()
+      }, 700)
+    }
+  }, 10000)
+  setTimeout(() => {
+    clearInterval(interval)
+    if (!estado) {
+      interval = setInterval(() => {
+        createFrutas()
+      }, 500)
+    }
+  }, 15000)
+  setTimeout(() => {
+    clearInterval(interval)
+    if (!estado) {
+      interval = setInterval(() => {
+        createFrutas()
+      }, 300)
+    }
+  }, 20000)
+}
+
+const Estadobutton = (play, stop) => {
+  if (estado) {
+    play.classList.add('show')
+    stop.classList.remove('show')
+  } else {
+    stop.classList.add('show')
+    play.classList.remove('show')
+  }
+}
+
+const disableFruits = () => {
+  const allFruits = document.querySelectorAll('.Recoger')
+  allFruits.forEach((fruit) => {
+    fruit.classList.add('disabled')
+  })
+}
+
+const enableFruits = () => {
+  const allFruits = document.querySelectorAll('.Recoger')
+  allFruits.forEach((fruit) => {
+    fruit.classList.remove('disabled')
+  })
 }

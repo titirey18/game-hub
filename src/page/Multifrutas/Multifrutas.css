@@ -1,7 +1,7 @@
 .cesta {
   width: 100px;
   position: absolute;
-  z-index: 999999999;
+  z-index: 980;
   right: 5%;
   bottom: 20px;
 }
@@ -13,5 +13,34 @@
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
+.ElementFruit.disabled {
+  pointer-events: none;
+}
+
+.contador {
+  position: absolute;
+  z-index: 999999999;
+  bottom: 30px;
+  color: rgb(43, 255, 0);
+  font-size: 30px;
+  text-align: center;
+  width: 100px;
+  right: 5%;
+}
+
+.button-Fruit {
+  position: absolute;
+  border: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  top: 100px;
+  right: 20px;
+  border: 3px solid rgb(43, 255, 0);
+  color: rgb(43, 255, 0);
+  background-color: black;
+  display: none;
+}
+
+.show {
+  display: inline-block;
 }
