@@ -50,7 +50,9 @@ export const Poner = () => {
           Bloque.classList.add('playerO')
           currentPlayer = 'X'
         }
-        checkWinner()
+        if (checkWinner()) {
+          setTimeout(resetgame, 1000)
+        }
       }
     })
   })
@@ -123,9 +125,19 @@ export const checkWinner = () => {
       setTimeout(() => {
         alert(` Ha ganado el jugador ${board[a[0]][a[1]]}`)
       }, 100)
+
       return board[a[0]][a[1]]
     }
   }
 
   return null
+}
+
+const resetgame = () => {
+  const Bloques = document.querySelectorAll('.Bloques')
+  Bloques.forEach((Bloque) => {
+    Bloque.textContent = ''
+    Bloque.classList.remove = ('playerX', 'playerO')
+  })
+  Poner()
 }

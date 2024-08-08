@@ -1,4 +1,4 @@
-import { iniMulti } from '../../page/Multifrutas/Multifrutas'
+import { iniMulti, stopMulti } from '../../page/Multifrutas/Multifrutas'
 import { iniPpt } from '../../page/Ppt/Ppt'
 import { iniTateti, Poner, checkWinner } from '../../page/Tateti/Tateti'
 import './header.css'
@@ -14,6 +14,7 @@ export const header = (DivApp) => {
   buttonMulti.textContent = 'Multifrutas'
 
   buttonTateti.addEventListener('click', () => {
+    stopMulti()
     const Divcontent = document.querySelector('.content')
     Divcontent.innerHTML = ''
     iniTateti()
@@ -22,12 +23,14 @@ export const header = (DivApp) => {
   })
 
   buttonPpt.addEventListener('click', () => {
+    stopMulti()
     const Divcontent = document.querySelector('.content')
     Divcontent.innerHTML = ''
     iniPpt()
   })
 
   buttonMulti.addEventListener('click', () => {
+    stopMulti()
     const Divcontent = document.querySelector('.content')
     Divcontent.innerHTML = ''
     iniMulti()

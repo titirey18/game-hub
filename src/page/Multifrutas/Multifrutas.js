@@ -40,8 +40,7 @@ export const iniMulti = () => {
   stop.addEventListener('click', () => {
     estado = !estado
     Estadobutton(play, stop)
-    clearInterval(interval)
-    disableFruits()
+    stopMulti()
   })
 
   Estadobutton(play, stop)
@@ -119,32 +118,32 @@ const stargame = () => {
     createFrutas()
   }, 1000)
   setTimeout(() => {
-    clearInterval(interval)
     if (!estado) {
+      clearInterval(interval)
       interval = setInterval(() => {
         createFrutas()
       }, 800)
     }
   }, 5000)
   setTimeout(() => {
-    clearInterval(interval)
     if (!estado) {
+      clearInterval(interval)
       interval = setInterval(() => {
         createFrutas()
       }, 700)
     }
   }, 10000)
   setTimeout(() => {
-    clearInterval(interval)
     if (!estado) {
+      clearInterval(interval)
       interval = setInterval(() => {
         createFrutas()
       }, 500)
     }
   }, 15000)
   setTimeout(() => {
-    clearInterval(interval)
     if (!estado) {
+      clearInterval(interval)
       interval = setInterval(() => {
         createFrutas()
       }, 300)
@@ -174,4 +173,10 @@ const enableFruits = () => {
   allFruits.forEach((fruit) => {
     fruit.classList.remove('disabled')
   })
+}
+
+export const stopMulti = () => {
+  clearInterval(interval)
+  estado = true
+  disableFruits()
 }
