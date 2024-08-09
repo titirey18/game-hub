@@ -3,41 +3,52 @@ import { iniPpt } from '../../page/Ppt/Ppt'
 import { iniTateti, Poner, checkWinner } from '../../page/Tateti/Tateti'
 import './header.css'
 
+const NavButton = ({ text, onClick }) => {
+  const button = document.createElement('button')
+  button.textContent = text
+  button.addEventListener('click', onClick)
+  return button
+}
+
 export const header = (DivApp) => {
   const Header = document.createElement('header')
-  const buttonPpt = document.createElement('button')
-  const buttonTateti = document.createElement('button')
-  const buttonMulti = document.createElement('button')
 
-  buttonPpt.textContent = 'Piedra Papel o Tijera'
-  buttonTateti.textContent = 'Tateti'
-  buttonMulti.textContent = 'Multifrutas'
+  const links = [
+    {
+      text: 'Piedra Papel o Tijera',
+      onClick: () => {
+        stopMulti()
+        const Divcontent = document.querySelector('.content')
+        Divcontent.innerHTML = ''
+        iniPpt()
+      }
+    },
+    {
+      text: 'Tateti',
+      onClick: () => {
+        stopMulti()
+        const Divcontent = document.querySelector('.content')
+        Divcontent.innerHTML = ''
+        iniTateti()
+        Poner()
+        checkWinner()
+      }
+    },
+    {
+      text: 'Multifrutas',
+      onClick: () => {
+        stopMulti()
+        const Divcontent = document.querySelector('.content')
+        Divcontent.innerHTML = ''
+        iniMulti()
+      }
+    }
+  ]
 
-  buttonTateti.addEventListener('click', () => {
-    stopMulti()
-    const Divcontent = document.querySelector('.content')
-    Divcontent.innerHTML = ''
-    iniTateti()
-    Poner()
-    checkWinner()
+  links.forEach((link) => {
+    const button = NavButton(link)
+    Header.append(button)
   })
 
-  buttonPpt.addEventListener('click', () => {
-    stopMulti()
-    const Divcontent = document.querySelector('.content')
-    Divcontent.innerHTML = ''
-    iniPpt()
-  })
-
-  buttonMulti.addEventListener('click', () => {
-    stopMulti()
-    const Divcontent = document.querySelector('.content')
-    Divcontent.innerHTML = ''
-    iniMulti()
-  })
-
-  Header.append(buttonPpt)
-  Header.append(buttonTateti)
-  Header.append(buttonMulti)
   DivApp.append(Header)
 }
