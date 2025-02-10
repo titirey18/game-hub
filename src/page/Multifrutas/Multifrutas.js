@@ -5,66 +5,69 @@ let interval
 let estado = true
 
 export const iniMulti = () => {
-  const Divcontent = document.querySelector('.content')
+  const Divcontent = document.querySelector('.content');
 
   if (!Divcontent) {
-    console.error('El contenedor .content no existe.')
-    return
+    console.error('El contenedor .content no existe.');
+    return;
   }
 
-  Divcontent.innerHTML = ''
+  Divcontent.innerHTML = '';
 
-  COUNT = parseInt(localStorage.getItem('score')) || 0
 
-  const Multi = document.createElement('h1')
-  const cesta = document.createElement('img')
-  const textcount = document.createElement('h2')
-  const play = document.createElement('button')
-  const stop = document.createElement('button')
+  COUNT = 0;
+  localStorage.setItem('score', COUNT);
 
-  textcount.className = 'contador'
-  textcount.textContent = COUNT
-  cesta.className = 'cesta'
-  cesta.src = 'public/assets/cesta.png'
-  play.textContent = 'Play'
-  stop.textContent = 'Stop'
-  play.className = 'button-Fruit'
-  stop.className = 'button-Fruit'
+  const Multi = document.createElement('h1');
+  const cesta = document.createElement('img');
+  const textcount = document.createElement('h2');
+  const play = document.createElement('button');
+  const stop = document.createElement('button');
+
+  textcount.className = 'contador';
+  textcount.textContent = COUNT;
+  cesta.className = 'cesta';
+  cesta.src = 'dist/assets/cesta.png';
+  play.textContent = 'Play';
+  stop.textContent = 'Stop';
+  play.className = 'button-Fruit';
+  stop.className = 'button-Fruit';
 
   play.addEventListener('click', () => {
-    estado = !estado
-    Estadobutton(play, stop)
-    stargame()
-  })
+    estado = !estado;
+    Estadobutton(play, stop);
+    stargame();
+  });
 
   stop.addEventListener('click', () => {
-    estado = !estado
-    Estadobutton(play, stop)
-    stopMulti()
-  })
+    estado = !estado;
+    Estadobutton(play, stop);
+    stopMulti();
+  });
 
-  Estadobutton(play, stop)
+  Estadobutton(play, stop);
 
-  Multi.textContent = 'Multifrutas'
-  Multi.classList.add('Title')
+  Multi.textContent = 'Multifrutas';
+  Multi.classList.add('Title');
 
-  Divcontent.append(play)
-  Divcontent.append(stop)
-  Divcontent.append(textcount)
-  Divcontent.append(Multi)
-  Divcontent.append(cesta)
-}
+  Divcontent.append(play);
+  Divcontent.append(stop);
+  Divcontent.append(textcount);
+  Divcontent.append(Multi);
+  Divcontent.append(cesta);
+};
+
 
 const createFrutas = () => {
   const Divcontent = document.querySelector('.content')
 
   const Frutas = [
-    'public/assets/fresa.png',
-    'public/assets/limon.png',
-    'public/assets/manzana.png',
-    'public/assets/naranja.png',
-    'public/assets/pera.png',
-    'public/assets/platano.png'
+    'src/assets/fresa.png',
+    'src/assets/limon.png',
+    'src/assets/manzana.png',
+    'src/assets/naranja.png',
+    'src/assets/pera.png',
+    'src/assets/platano.png',
   ]
 
   const contentRect = Divcontent.getBoundingClientRect()
