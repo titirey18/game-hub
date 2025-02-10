@@ -58,12 +58,12 @@ export const iniMulti = () => {
 };
 
 
-import fresa from '../assets/fresa.png';
-import limon from '../assets/limon.png';
-import manzana from '../assets/manzana.png';
-import naranja from '../assets/naranja.png';
-import pera from '../assets/pera.png';
-import platano from '../assets/platano.png';
+import fresa from '../../assets/fresa.png';
+import limon from '../../assets/limon.png';
+import manzana from '../../assets/manzana.png';
+import naranja from '../../assets/naranja.png';
+import pera from '../../assets/pera.png';
+import platano from '../../assets/platano.png';
 
 const Frutas = [fresa, limon, manzana, naranja, pera, platano];
 
