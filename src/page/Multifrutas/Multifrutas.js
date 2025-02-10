@@ -58,37 +58,36 @@ export const iniMulti = () => {
 };
 
 
+import fresa from '../assets/fresa.png';
+import limon from '../assets/limon.png';
+import manzana from '../assets/manzana.png';
+import naranja from '../assets/naranja.png';
+import pera from '../assets/pera.png';
+import platano from '../assets/platano.png';
+
+const Frutas = [fresa, limon, manzana, naranja, pera, platano];
+
 const createFrutas = () => {
-  const Divcontent = document.querySelector('.content')
+  const Divcontent = document.querySelector('.content');
 
-  const Frutas = [
-    'src/assets/fresa.png',
-    'src/assets/limon.png',
-    'src/assets/manzana.png',
-    'src/assets/naranja.png',
-    'src/assets/pera.png',
-    'src/assets/platano.png',
-  ]
+  const contentRect = Divcontent.getBoundingClientRect();
+  const randomTop = Math.random() * (contentRect.height - 200);
+  const randomLeft = Math.random() * (contentRect.width - 50);
 
-  const contentRect = Divcontent.getBoundingClientRect()
+  const randomIndex = Math.floor(Math.random() * Frutas.length);
+  const randomFruit = Frutas[randomIndex];
 
-  const randomTop = Math.random() * (contentRect.height - 200)
-  const randomLeft = Math.random() * (contentRect.width - 50)
+  const ImgFrutas = document.createElement('img');
+  ImgFrutas.src = randomFruit;
+  ImgFrutas.className = 'ElementFruit';
+  ImgFrutas.style.top = `${randomTop + 150}px`;
+  ImgFrutas.style.left = `${randomLeft}px`;
+  ImgFrutas.classList.add('Recoger');
 
-  const randomIndex = Math.floor(Math.random() * Frutas.length)
-  const randomFruit = Frutas[randomIndex]
+  ImgFrutas.addEventListener('click', (event) => pickfruit(event, contentRect));
 
-  const ImgFrutas = document.createElement('img')
-  ImgFrutas.src = randomFruit
-  ImgFrutas.className = 'ElementFruit'
-  ImgFrutas.style.top = `${randomTop + 150}px`
-  ImgFrutas.style.left = `${randomLeft}px`
-  ImgFrutas.classList.add('Recoger')
-
-  ImgFrutas.addEventListener('click', (event) => pickfruit(event, contentRect))
-
-  Divcontent.append(ImgFrutas)
-  comprobar()
+  Divcontent.append(ImgFrutas);
+  comprobar();
 }
 
 const pickfruit = (event, contentRect) => {
