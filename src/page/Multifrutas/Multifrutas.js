@@ -27,7 +27,7 @@ export const iniMulti = () => {
   textcount.className = 'contador';
   textcount.textContent = COUNT;
   cesta.className = 'cesta';
-  cesta.src = 'dist/assets/cesta.png';
+  cesta.src = '/assets/cesta.png';
   play.textContent = 'Play';
   stop.textContent = 'Stop';
   play.className = 'button-Fruit';
@@ -58,12 +58,12 @@ export const iniMulti = () => {
 };
 
 
-import fresa from '../../assets/fresa.png';
-import limon from '../../assets/limon.png';
-import manzana from '../../assets/manzana.png';
-import naranja from '../../assets/naranja.png';
-import pera from '../../assets/pera.png';
-import platano from '../../assets/platano.png';
+import fresa from '/assets/fresa.png';
+import limon from '/assets/limon.png';
+import manzana from '/assets/manzana.png';
+import naranja from '/assets/naranja.png';
+import pera from '/assets/pera.png';
+import platano from '/assets/platano.png';
 
 const Frutas = [fresa, limon, manzana, naranja, pera, platano];
 
